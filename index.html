@@ -1,80 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cátedra Sicómoro-URJC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cátedra Sicómoro – URJC en Sistemas Complejos</title>
+  <meta name="description" content="Presentación de la Cátedra Sicómoro – URJC en Sistemas Complejos (Universidad Rey Juan Carlos)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ===== Reset & base ===== */
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: #fff;
+    :root{
+      --bg:#0b1520; /* fondo azul muy oscuro */
+      --bg-soft:#0f1d2b;
+      --fg:#ecf2f8;
+      --muted:#b9c6d2;
+      --brand:#c8102e; /* rojo URJC */
+      --brand-2:#7bb900; /* verde Sicómoro */
+      --card:#0e1a25cc;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:inherit;text-decoration:underline dotted}
+
+    /* HERO */
+    .hero{position:relative; min-height:64vh; display:grid; place-items:center; overflow:hidden;}
+    .hero::before{content:""; position:absolute; inset:0; background:url('base_image.png') center/cover no-repeat fixed; filter:contrast(1.05) brightness(.9);}
+    .hero::after{content:""; position:absolute; inset:0; background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(123,185,0,.25), transparent 60%),
+      linear-gradient(180deg, rgba(11,21,32,.2), rgba(11,21,32,.9) 60%, #0b1520 100%);
+      }
+    .hero-inner{position:relative; z-index:1; width:min(1100px,92vw); padding:4rem 1rem 3rem; text-align:left;}
+    .kicker{letter-spacing:.12em; text-transform:uppercase; font-weight:800; color:var(--fg); opacity:.95}
+    .title{margin:.25rem 0 1rem; font-weight:800; line-height:1.05; font-size: clamp(2.1rem, 6vw, 4rem);}
+    .title span{color:var(--brand)}
+    .title span.alt{color:var(--brand-2)}
+    .subtitle{max-width:65ch; color:var(--muted); font-weight:400}
+
+    /* NAV TABS */
+    .tabs{position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(10px); background:linear-gradient(180deg, #0b1520cc, #0b152080); border-top:1px solid #ffffff12; border-bottom:1px solid #ffffff10}
+    .tabs-inner{display:flex; gap:.5rem; width:min(1100px,92vw); margin:0 auto; padding:.6rem .5rem}
+    .tab{appearance:none; border:1px solid #ffffff14; color:var(--muted); background:var(--card); padding:.7rem 1rem; border-radius:999px; cursor:pointer; transition:.2s ease; font-weight:600;}
+    .tab:hover{transform:translateY(-1px); border-color:#ffffff30}
+    .tab[aria-selected="true"]{color:#0b1520; background:linear-gradient(180deg,#ffd7df,#c8102e); border-color:transparent; box-shadow:var(--shadow); background-blend-mode:multiply; color:white}
+
+    /* CONTENT SECTIONS */
+    .section{display:none;}
+    .section.active{display:block}
+    .wrap{width:min(1100px,92vw); margin:0 auto; padding:2.2rem .5rem 3rem}
+    .card{background:var(--card); border:1px solid #ffffff14; border-radius:var(--radius); padding:1.2rem 1.2rem; box-shadow:var(--shadow)}
+    h2{font-size: clamp(1.4rem, 2.4vw, 2rem); margin:0 0 1rem; letter-spacing:.01em}
+    p{color:var(--muted); line-height:1.7;}
+    ul{color:var(--muted); line-height:1.7}
+    .grid{display:grid; gap:1.1rem}
+    @media(min-width:820px){
+      .grid.two{grid-template-columns:1.2fr .8fr}
+      .grid.three{grid-template-columns:repeat(3,1fr)}
     }
 
-    /* ===== Fondo ===== */
-    body {
-      background: url("images/fondo.jpg") no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* ===== Contenido ===== */
-    .content {
-      max-width: 900px;
-      background: rgba(0, 0, 0, 0.6); /* caja semitransparente */
-      padding: 2rem;
-      border-radius: 12px;
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2rem;
-    }
-
-    p, li {
-      line-height: 1.6;
-      font-size: 1rem;
-      text-align: justify;
-    }
-
-    ul {
-      margin: 1rem 0 1rem 1.5rem;
-      text-align: left;
-    }
-
-    /* ===== Responsivo ===== */
-    @media (max-width: 768px) {
-      h1 { font-size: 1.5rem; }
-      p, li { font-size: 0.95rem; }
-      .content { padding: 1rem; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.3rem; }
-      p, li { font-size: 0.9rem; }
-    }
+    .badge{display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .7rem; border-radius:999px; background:#ffffff10; color:var(--fg); font-weight:600; font-size:.82rem; border:1px solid #ffffff18}
+    .list-check li{margin:.3rem 0; padding-left:1.2rem; position:relative}
+    .list-check li::before{content:"✓"; position:absolute; left:0; color:var(--brand-2)}
+    .footer{border-top:1px solid #ffffff12; color:#9fb0be; text-align:center; padding:2rem 1rem}
+    .logos{display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
+    .logos img{height:52px; filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Cátedra Sicómoro-URJC en Sistemas Complejos</h1>
-    <p>
-      El objetivo principal de la Cátedra Sicómoro-URJC en Sistemas Complejos es acercar las Ciencias de la Complejidad a la sociedad en general, así como a empresas, fundaciones y organizaciones sociales. En pleno siglo XXI, donde la sociedad se interrelaciona de manera cada vez más intrincada, disponer de metodologías que permitan comprender y gestionar su complejidad resulta esencial para abordar multitud de desafíos. La Cátedra se articula en varias líneas de acción fundamentales, orientadas a promover y difundir el conocimiento en este campo, así como a fomentar la integración de la investigación, la docencia y la transferencia de conocimiento a la sociedad. Entre las principales líneas de acción de la Cátedra se destacan:
-    </p>
-    <ul>
-      <li><strong>Divulgación y Difusión:</strong> Promover la comprensión de las Ciencias de la Complejidad a través de eventos, seminarios y actividades de divulgación que faciliten el acercamiento del conocimiento científico a la sociedad en general.</li>
-      <li><strong>Investigación Avanzada:</strong> Impulsar proyectos de investigación interdisciplinaria que aborden los desafíos actuales mediante el estudio de sistemas complejos y la aplicación de metodologías innovadoras.</li>
-      <li><strong>Formación y Docencia:</strong> Integrar la investigación en el ámbito educativo mediante programas formativos, cursos y actividades académicas dirigidas a estudiantes y profesionales, favoreciendo el desarrollo de competencias en el análisis de sistemas complejos.</li>
-      <li><strong>Transferencia y Aplicación del Conocimiento:</strong> Facilitar el traspaso de metodologías y herramientas propias de la ciencia de la complejidad a empresas, fundaciones y organizaciones sociales, generando soluciones prácticas para problemas reales.</li>
-      <li><strong>Colaboración y Redes de Interacción:</strong> Establecer alianzas y colaboraciones con diversas instituciones y actores sociales para enriquecer el intercambio de saberes y potenciar el impacto de las iniciativas en el ámbito de la complejidad.</li>
-    </ul>
-  </div>
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <div class="logos">
+        <img src="urjc.png" alt="Universidad Rey Juan Carlos" />
+        <img src="logo_sicomoro.webp" alt="Fundación Sicómoro" />
+      </div>
+      <div class="badge">Universidad Rey Juan Carlos · Fundación Sicómoro</div>
+      <h1 class="title">Cátedra <span>Sicómoro</span> – URJC<br/>en <span class="alt">Sistemas Complejos</span></h1>
+      <p class="subtitle">Una iniciativa para acercar las Ciencias de la Complejidad a la sociedad, la empresa y las organizaciones, impulsando la investigación, la formación y la transferencia de conocimiento.</p>
+    </div>
+  </header>
+
+  <!-- NAV TABS -->
+  <nav class="tabs" aria-label="Secciones">
+    <div class="tabs-inner" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-target="#presentacion">Presentación</button>
+      <button class="tab" role="tab" aria-selected="false" data-target="#creacion">Creación</button>
+      <button class="tab" role="tab" aria-selected="false" data-target="#proposito">Propósito</button>
+      <button class="tab" role="tab" aria-selected="false" data-target="#acciones">Acciones</button>
+      <button class="tab" role="tab" aria-selected="false" data-target="#equipo">Equipo</button>
+      <button class="tab" role="tab" aria-selected="false" data-target="#contacto">Contacto</button>
+    </div>
+  </nav>
+
+  <!-- SECTIONS -->
+  <main>
+    <!-- Presentación -->
+    <section id="presentacion" class="section active" aria-labelledby="tab-presentacion">
+      <div class="wrap grid two">
+        <article class="card">
+          <h2>Presentación</h2>
+          <p>La Cátedra Sicómoro en Sistemas Complejos representa una apuesta estratégica para enfrentar los desafíos del mundo contemporáneo. En un entorno global caracterizado por la interacción entre un elevado número de agentes y variables, se vuelve esencial comprender y gestionar su complejidad para abordar problemas en áreas como la economía, la salud, la tecnología y el medio ambiente.</p>
+          <p>Coordinada por el Catedrático <strong>Javier Martín Buldú</strong> y con el apoyo de la <strong>Fundación Sicómoro</strong>, esta cátedra actúa como un puente entre la investigación de vanguardia en las Ciencias de la Complejidad y la sociedad. Su objetivo es transformar el conocimiento científico en herramientas prácticas que apoyen la toma de decisiones en empresas, fundaciones y organizaciones sociales.</p>
+          <p>La Cátedra aspira a consolidarse como un espacio de innovación y transferencia de conocimiento, fomentando el diálogo entre científicos, expertos, profesionales y ciudadanía para generar soluciones adaptativas y sostenibles.</p>
+        </article>
+        <aside class="card">
+          <h2>Datos rápidos</h2>
+          <ul class="list-check">
+            <li>Universidad Rey Juan Carlos (URJC)</li>
+            <li>Grupo de Investigación de Alto Rendimiento en Sistemas Complejos y Física Fundamental</li>
+            <li>Apoyo de la Fundación Sicómoro</li>
+            <li>Enfoque interdisciplinar y transferencia a la sociedad</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Creación -->
+    <section id="creacion" class="section" aria-labelledby="tab-creacion">
+      <div class="wrap">
+        <div class="card">
+          <h2>Creación de la Cátedra</h2>
+          <p>La <strong>Fundación Sicómoro</strong> y la <strong>Universidad Rey Juan Carlos (URJC)</strong>, a través del Grupo de Investigación de Alto Rendimiento en Sistemas Complejos y Física Fundamental, son las responsables de la creación de la Cátedra Sicómoro en Sistemas Complejos.</p>
+          <p><strong>Fundación Sicómoro:</strong> puente entre teoría y práctica en la comprensión de la complejidad; impulsa el conocimiento desde la Teoría General de Sistemas y favorece la integración de áreas como sistemas complejos, epistemología, política, tecnología y ciencias sociales. Fomenta una comunidad activa de investigadores y divulgación.</p>
+          <p><strong>Grupo URJC:</strong> dirigido por el Catedrático Javier Martín Buldú, desarrolla proyectos interdisciplinares sobre fenómenos no lineales, redes complejas, dinámica de sistemas, modelización matemática y simulación computacional, colaborando a nivel internacional. Integra la investigación en docencia, organiza cursos, seminarios y actividades de divulgación para acercar la complejidad a la sociedad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propósito -->
+    <section id="proposito" class="section" aria-labelledby="tab-proposito">
+      <div class="wrap grid two">
+        <article class="card">
+          <h2>Propósito y líneas de acción</h2>
+          <p>El objetivo principal es acercar las Ciencias de la Complejidad a la sociedad, empresas, fundaciones y organizaciones sociales. La Cátedra se articula en líneas de acción orientadas a integrar investigación, docencia y transferencia:</p>
+          <ul>
+            <li><strong>Divulgación y Difusión:</strong> eventos, seminarios y actividades para acercar el conocimiento a la sociedad.</li>
+            <li><strong>Investigación Avanzada:</strong> proyectos interdisciplinarios para abordar desafíos actuales con metodologías innovadoras.</li>
+            <li><strong>Formación y Docencia:</strong> programas, cursos y actividades académicas para estudiantes y profesionales.</li>
+            <li><strong>Transferencia:</strong> traspaso de metodologías y herramientas a empresas y organizaciones para soluciones prácticas.</li>
+            <li><strong>Colaboración y Redes:</strong> alianzas con instituciones y actores sociales para potenciar el impacto.</li>
+          </ul>
+        </article>
+        <aside class="card">
+          <h2>Contexto</h2>
+          <p>El reconocimiento internacional —como el Nobel de Física 2021 a Giorgio Parisi por su trabajo en sistemas desordenados— subraya la relevancia de la complejidad para comprender el mundo interconectado del siglo XXI.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Acciones -->
+    <section id="acciones" class="section" aria-labelledby="tab-acciones">
+      <div class="wrap">
+        <div class="card">
+          <h2>Acciones específicas</h2>
+          <div class="grid three">
+            <div>
+              <h3>Conferencias internacionales</h3>
+              <ul>
+                <li><strong>LANET:</strong> vídeos introductorios (1–2 min) por ponentes, vídeos de 15 min para la Escuela de Redes Complejas, becas para doctorandos y “Ponencia Sicómoro”.</li>
+              </ul>
+              <h3>Eventos anuales</h3>
+              <ul>
+                <li><strong>Una visión sobre los sistemas complejos en el siglo XXI:</strong> conferencia con investigador/a de prestigio internacional.</li>
+                <li><strong>Frontiers of Complexity 72h:</strong> financiación de un encuentro de investigadores senior para redactar un artículo en 72 h.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Workshops</h3>
+              <ul>
+                <li><strong>Football Analytics:</strong> organización y apoyo logístico; becas de registro para participantes destacados.</li>
+              </ul>
+              <h3>Investigación y formación</h3>
+              <ul>
+                <li><strong>Dirección de tesis doctorales</strong> con ayudas de matrícula.</li>
+                <li><strong>Máster en Análisis de Datos Deportivos:</strong> financiación de ponentes internacionales y becas —con incentivo a la participación femenina.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Movilidad y recursos</h3>
+              <ul>
+                <li><strong>Estancias internacionales</strong> para estudiantes latinoamericanos en el Grupo URJC (viaje y alojamiento).</li>
+                <li><strong>Material digital:</strong> píldoras informativas, cursos web y material audiovisual; diseño y mantenimiento de plataformas.</li>
+                <li><strong>Divulgación:</strong> Semana de la Ciencia URJC, <em>Pint of Science</em>, webinars y talleres abiertos.</li>
+                <li><strong>Cooperación interinstitucional</strong> con empresas, fundaciones y organizaciones sociales.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="section" aria-labelledby="tab-equipo">
+      <div class="wrap grid two">
+        <div class="card">
+          <h2>Equipo de la Cátedra</h2>
+          <ul>
+            <li><strong>Javier Martín Buldú</strong>, Catedrático de Universidad (URJC).</li>
+            <li><strong>Irene Sendiña Nadal</strong>, Catedrática de Universidad (URJC).</li>
+            <li><strong>Inmaculada Leyva Callejas</strong>, Catedrática de Universidad (URJC).</li>
+            <li><strong>Johann Heinz Martínez Huartos</strong>, Profesor Ayudante Doctor (URJC).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Asociados</h2>
+          <ul>
+            <li>Jose G. Espinoza</li>
+            <li>Paula Rodriguez</li>
+            <li>Xiujuan Xiong</li>
+            <li>Julieta Schwartz</li>
+            <li>Carolina Contreras</li>
+          </ul>
+          <h2 style="margin-top:1rem">Colaboradores Externos</h2>
+          <ul>
+            <li>Ignacio Echegoyen</li>
+            <li>José Luis Herrera Diestra</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section" aria-labelledby="tab-contacto">
+      <div class="wrap">
+        <div class="card">
+          <h2>Contacto</h2>
+          <p>Si quieres colaborar o solicitar más información sobre la Cátedra Sicómoro – URJC en Sistemas Complejos, escribe a <a href="mailto:info@urjc.es">info@urjc.es</a> o al Grupo de Investigación de Alto Rendimiento en Sistemas Complejos y Física Fundamental de la URJC.</p>
+          <p style="font-size:.95rem; opacity:.8">*Sustituye el correo por el de contacto oficial cuando lo tengáis.*</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Cátedra Sicómoro – URJC. Universidad Rey Juan Carlos · Fundación Sicómoro.</p>
+  </footer>
+
+  <script>
+    // Tabs
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabs.forEach(b=>b.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+        sections.forEach(s=>s.classList.remove('active'));
+        document.querySelector(btn.dataset.target).classList.add('active');
+        window.scrollTo({top:document.querySelector('.tabs').offsetTop,behavior:'smooth'});
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
