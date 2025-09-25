@@ -109,6 +109,47 @@
       text-align: left !important;
     }
 
+    /* ==== PROYECTOS ==== */
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+.project-card {
+  display: flex;
+  flex-direction: row;
+  background: var(--card);
+  border: 1px solid #ffffff14;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.project-img {
+  width: 220px;
+  height: auto;
+  object-fit: cover;
+}
+.project-info {
+  padding: 1rem;
+  flex: 1;
+}
+@media(min-width: 820px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr; /* dos columnas en escritorio */
+  }
+}
+
+
+/* ==== PROYECTOS (2 columnas escritorio, 1 móvil) ==== */
+.projects-grid { display:grid; gap:1.5rem; grid-template-columns:1fr; }
+.project-card { display:flex; flex-direction:row; background:var(--card); border:1px solid #ffffff14; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.project-img { width:260px; height:auto; object-fit:cover; border-right:1px solid #ffffff10; }
+.project-info { padding:1rem; flex:1; }
+.project-info h3 { margin:.1rem 0 .4rem; color:#fff; font-size:1.1rem; }
+.project-desc { color:var(--muted); text-align:justify; margin:0 0 .4rem; }
+.project-meta { color:var(--muted); font-size:.95rem; margin:0; }
+@media (min-width: 820px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
+
 </style>
 </head>
 <body>
@@ -120,7 +161,7 @@
         <img src="images/logo_sicomoro.webp" alt="Fundación Sicómoro" />
       </div>
       <h1 class="title">
-        <img src="images/drawing.png" alt="Logo Cátedra Sicómoro"
+        <img src="images/logo.png" alt="Logo Cátedra Sicómoro"
              style="height:60px; vertical-align:middle; margin-right:12px;">
         Cátedra <span>Sicómoro</span> – URJC<br/>en <span class="alt">Sistemas Complejos</span>
       </h1>
@@ -160,78 +201,88 @@
     </section>
 
     <!-- Proyectos -->
-    <section id="proyectos" class="section">
-      <div class="wrap">
-        <h2>Proyectos</h2>
-        <div class="grid three">
-          <article class="card project-card">
-            <header class="project-header">
-              <h3>Conferencias Internacionales</h3>
-              <div class="project-meta">Difusión</div>
-            </header>
-            <ul>
-              <p><strong>Latin American Conference on Complex Networks - LANET</strong></p>
-              <p>La Cátedra Sicómoro participa activamente en la organización y apoyo a la Latin American Conference on Complex Networks (LANET), contribuyendo a la divulgación científica a través de la producción de material audiovisual especializado. Esta colaboración incluye la creación de videos introductorios con ponentes expertos y la financiación de becas para la asistencia de estudiantes de doctorado, fomentando la formación de nuevas generaciones de investigadores. Como distintivo de esta alianza, se ha incorporado la "Ponencia Sicómoro" dentro del programa de conferencias invitadas, reforzando el vínculo entre la investigación académica y la Fundación Sicómoro.</p>
-            </ul>
-          </article>
+    <section id="proyectos" class="section" aria-labelledby="tab-proyectos">
 
-          <article class="card project-card">
-            <header class="project-header">
-              <h3>Eventos y jornadas anuales</h3>
-              <div class="project-meta">Comunidad</div>
-            </header>
-            <ul>
-              <li><strong>Evento Anual en Madrid</strong></li>
-              <p>Una visión sobre los sistemas complejos en el siglo XXI: ponencia de un investigador de reconocido prestigio internacional, con el objetivo de exponer las últimas tendencias y aplicaciones de la ciencia de la complejidad en el mundo actual.</p>
-              <li><strong>Frontiers of Complexity 72h</strong></li>
-              <p>Encuentro exclusivo para investigadores senior en sistemas complejos. Redacción colaborativa de un artículo científico en menos de 72 horas sobre temas frontera.</p>
-              <li><strong>Workshops Especializados</strong></li>
-              <p><strong>Football Analytics</strong> es un evento especializado en la aplicación de metodologías de sistemas complejos al ámbito deportivo. Financiación de becas de registro para participantes destacados.</p>
-            </ul>
-          </article>
+  <div class="wrap">
+    <h2>Proyectos</h2>
+    <div class="projects-grid">
 
-          <article class="card project-card">
-            <header class="project-header">
-              <h3>Divulgación y Transferencia de Conocimiento</h3>
-              <div class="project-meta">Formación</div>
-            </header>
-            <ul>
-              <li><strong>Ciencia y Museos</strong></li>  
-              <p>Organización y apoyo logístico del evento “Ciencia y Museos”, el cual consistirá en una visita guiada por el Museo del Prado en el que se comentarán, desde la perspectiva científica, varios cuadros de reconocido prestigio.</p>  
-              <li>Ciencia y Cine</li>
-              <p>Organización y apoyo logístico del evento “Ciencia y Cine”, el cual consistirá en la proyección de una película de cine, seguida de una ponencia de un investigador de reconocido prestigio sobre el tema contenido en la película y un posterior debate con los asistentes.</p>
-            </ul>
-          </article>
-
-          <article class="card project-card">
-            <header class="project-header">
-              <h3>Investigación y formación</h3>
-              <div class="project-meta">Investigación</div>
-            </header>
-            <ul>
-              <li><strong>Dirección de tesis doctorales</strong></li>
-              <p>Impulso y dirección de tesis en el campo de los Sistemas Complejos, ofreciendo ayudas económicas para cubrir la matrícula y así favorecer la formación de nuevos expertos en la materia.</p>
-              <li><strong>Apoyo programas de Posgrado</strong></li>
-              <p><strong>Máster en Análisis de Datos Deportivos</strong></p>
-              <p>Ponentes internacionales de reconocido prestigio en la asignatura de “Seminarios”.Becas de matrícula para estudiantes, con especial incentivo a la participación femenina, promoviendo la diversidad en el ámbito académico.</p>
-            </ul>
-          </article>
-
-          <article class="card project-card">
-            <header class="project-header">
-              <h3>Movilidad y recursos</h3>
-              <div class="project-meta">Transferencia</div>
-            </header>
-            <ul>
-              <li>Estancias internacionales para estudiantes LATAM (viaje + alojamiento).</li>
-              <li>Material digital: píldoras, cursos web y audiovisual.</li>
-              <li>Divulgación: Semana de la Ciencia, <em>Pint of Science</em>, webinars.</li>
-              <li>Cooperación con empresas, fundaciones y organizaciones sociales.</li>
-            </ul>
-          </article>
+      <div class="project-card">
+        <img src="images/catedra_sicomoro.jpg" alt="Conferencia Anual Cátedra Sicómoro-URJC" class="project-img">
+        <div class="project-info">
+          <h3>Conferencia Anual de la Cátedra Sicómoro-URJC</h3>
+          <p class="project-desc">Ponencia de un/a investigador/a de prestigio internacional sobre tendencias y aplicaciones de la complejidad.</p>
+          <p class="project-meta"><em>Fecha:</em> Mayo 2026 (por confirmar) · <em>Lugar:</em> Madrid</p>
         </div>
       </div>
-    </section>
+
+      <div class="project-card">
+        <img src="images/complexity_72.jpg" alt="Frontiers of Complexity 72h" class="project-img">
+        <div class="project-info">
+          <h3>Frontiers of Complexity 72h</h3>
+          <p class="project-desc">Encuentro de investigadores senior para redactar un artículo científico en menos de 72 horas.</p>
+          <p class="project-meta"><em>Fecha:</em> Junio 2026 (por confirmar) · <em>Lugar:</em> España</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/workshop_football.jpg" alt="Workshop Football Analytics 2026" class="project-img">
+        <div class="project-info">
+          <h3>Workshop Football Analytics 2026</h3>
+          <p class="project-desc">Aplicación de sistemas complejos y ciencia de datos al deporte. Incluye becas de registro para participantes destacados.</p>
+          <p class="project-meta"><em>Fecha:</em> Mayo 2026 (por confirmar) · <em>Lugar:</em> Sede de LaLiga, Madrid</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/workshop_women.png" alt="Workshop Women in Complexity" class="project-img">
+        <div class="project-info">
+          <h3>Workshop Women in Complexity</h3>
+          <p class="project-desc" >Primera edición para fomentar la participación de la mujer en investigación de sistemas complejos.</p>
+          <p class="project-meta"><em>Fecha:</em> Abril 2026 (por confirmar) · <em>Lugar:</em> URJC (Madrid)</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/acercando_empresa.jpg" alt="Jornada Acercando los Sistemas Complejos a la empresa" class="project-img">
+        <div class="project-info">
+          <h3>Jornada: Acercando los Sistemas Complejos a la empresa</h3>
+          <p class="project-desc">Encuentro entre investigadores y sector empresarial para impulsar transferencia de conocimiento.</p>
+          <p class="project-meta"><em>Fecha:</em> Marzo 2026 (por confirmar) · <em>Lugar:</em> Fundación Sicómoro</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/movilidad.jpg" alt="Programas de Movilidad y Estancias Internacionales" class="project-img">
+        <div class="project-info">
+          <h3>Programas de Movilidad y Estancias Internacionales</h3>
+          <p class="project-desc">Estancias de 1–4 semanas para investigadores latinoamericanos en el grupo URJC (viaje y alojamiento).</p>
+          <p class="project-meta"><em>Fecha:</em> Fechas variables · <em>Lugar:</em> URJC (España)</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/ciencia_museo.jpg" alt="Ciencia y Museos" class="project-img">
+        <div class="project-info">
+          <h3>Ciencia y Museos</h3>
+          <p class="project-desc">Visita guiada al Museo del Prado comentando obras desde la perspectiva científica.</p>
+          <p class="project-meta"><em>Fecha:</em> Noviembre 2026 (por confirmar) · <em>Lugar:</em> Museo del Prado (Madrid)</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/cine.jpg" alt="Ciencia y Cine" class="project-img">
+        <div class="project-info">
+          <h3>Ciencia y Cine</h3>
+          <p class="project-desc">Proyección + ponencia de un/a investigador/a y debate con los asistentes.</p>
+          <p class="project-meta"><em>Fecha:</em> Diciembre 2025 · <em>Lugar:</em> Madrid</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
     <!-- En los medios -->
     <section id="medios" class="section">
@@ -360,11 +411,12 @@ Su interés por el deporte lo ha llevado a certificarse en áreas como el Big Da
               </div>
 
               <div class="member-card">
-                <img class="member-photo" src="images/contreras_miembro.png" alt="Carolina Contreras">
+                <img class="member-photo" src="images/contreras_miembro.jpg" alt="Carolina Contreras">
                 <div class="member-info">
                   <h3>Carolina Contreras</h3>
                   <p class="member-role">Asociada</p>
-                  <p class="member-bio">Pendiente de bio.</p>
+                  <p class="member-bio">Se desempeña actualmente como Gestora del Proyecto de Investigación adscrito al grupo de Redes y Sistemas Complejos de la Universidad Rey Juan Carlos (URJC), responsabilidad que articula de manera simultánea con su desarrollo como doctoranda en Educación en la Universidad Complutense de Madrid. 
+Su trayectoria profesional se cimienta en su experiencia como docente, ámbito en el que ha aplicado sus estudios de Licenciatura en Español y Filología Clásica y su Máster en Educación, demostrando un compromiso continuo con la excelencia académica y la innovación pedagógica..</p>
                 </div>
               </div>
             </div>
@@ -402,6 +454,58 @@ Su interés por el deporte lo ha llevado a certificarse en áreas como el Big Da
             </div>
           </div>
 
+          <!-- Grupo: Comision Mixta -->
+          <div class="members-group card">
+            <h3 style="margin-top:0">Comisión Mixta</h3>
+
+            <div class="grid four">
+              <div class="member-card">
+                <img class="member-photo" src="images/jose_miembro_mixto.jpg" alt="José María Fuster van Bendegem">
+                <div class="member-info">
+                  <h3>José María Fuster van Bendegem</h3>
+                  <p class="member-role">Presidente de la Fundación Sicómoro</p>                  
+                  <p>
+                    <a href="https://fundacionsicomoro.org/" target="_blank">Más Información</a>              
+                  </p>
+                </div>
+              </div>
+
+              <div class="member-card">
+                <img class="member-photo" src="images/maria_miembro_mixto.jpg" alt="María Teresa Agujetas Serrano">
+                <div class="member-info">
+                  <h3>María Teresa Agujetas Serrano</h3>
+                  <p class="member-role">Gerente de la Fundación Sicómoro</p>                  
+                  <p>
+                    <a href="https://fundacionsicomoro.org/" target="_blank">Más Información</a>              
+                  </p>
+                </div>
+              </div>
+
+              <div class="member-card">
+                <img class="member-photo" src="images/buldu_miembro.png" alt="Javier Buldú">
+                <div class="member-info">
+                  <h3>Javier M. Buldú</h3>
+                  <p class="member-role">Director de la Cátedra</p>                  
+                  <p>
+                    <a href="https://scholar.google.com/citations?user=pFIlwGUAAAAJ&hl=es&oi=ao" target="_blank">Publicaciones</a>              
+                  </p>
+                </div>
+              </div>
+
+              <div class="member-card">
+                <img class="member-photo" src="images/vicerrector_miembro_mixto.jpg" alt="Fernando Martínez Castillejo">
+                <div class="member-info">
+                  <h3>Fernando Martínez Castillejo</h3>
+                  <p class="member-role">Vicerrector de Transferencia y Estructuras Científico-Tecnológicas</p>                  
+                  <p>
+                    <a href="https://www.urjc.es/iaa/10159-vicerrector-de-transferencia-y-estructuras-cientifico-tecnologicas" target="_blank">Más Información</a>              
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
         </div><!-- /grid -->
       </div>
     </section>
@@ -411,8 +515,7 @@ Su interés por el deporte lo ha llevado a certificarse en áreas como el Big Da
       <div class="wrap">
         <div class="card">
           <h2>Contacto</h2>
-          <p>Si quieres colaborar o solicitar más información, escribe a <a href="mailto:info@urjc.es">info@urjc.es</a> o al Grupo de Investigación de Alto Rendimiento en Sistemas Complejos y Física Fundamental de la URJC.</p>
-          <p style="font-size:.95rem; opacity:.8">*Sustituye el correo por el de contacto oficial cuando lo tengáis.*</p>
+          <p>Si quieres colaborar o solicitar más información, escribe a <a href="mailto:catedra.complejidad@urjc.es">catedra.complejidad@urjc.es</a> o al Grupo de Investigación de Alto Rendimiento en Sistemas Complejos y Física Fundamental de la URJC.</p>
         </div>
       </div>
     </section>
@@ -450,4 +553,3 @@ Su interés por el deporte lo ha llevado a certificarse en áreas como el Big Da
   </script>
 </body>
 </html>
-
