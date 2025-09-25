@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -83,7 +83,33 @@
 
 
     .footer{border-top:1px solid #ffffff12; color:#9fb0be; text-align:center; padding:2rem 1rem}
-  </style>
+  
+    /* ===== Overrides solicitados: "Miembros" en formato horizontal ===== */
+    .members-group .grid,
+    .members-group .grid.four,
+    .members-group .grid.three,
+    .members-group .grid.two{
+      grid-template-columns: 1fr !important; /* siempre 1 tarjeta por fila */
+    }
+    .member-card{
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 1.5rem !important;
+      padding: 1.25rem !important;
+    }
+    .member-photo{
+      width: 160px !important;
+      height: 160px !important;
+      object-fit: cover !important;
+      border-radius: 12px !important; /* rectangular */
+      flex-shrink: 0 !important;
+    }
+    .member-info{
+      flex: 1 1 auto !important;
+      text-align: left !important;
+    }
+
+</style>
 </head>
 <body>
   <!-- HERO -->
@@ -140,32 +166,40 @@
         <div class="grid three">
           <article class="card project-card">
             <header class="project-header">
-              <h3>Conferencias internacionales</h3>
+              <h3>Conferencias Internacionales</h3>
               <div class="project-meta">Difusión</div>
             </header>
             <ul>
-              <li><strong>LANET</strong>: vídeos intro, escuela de redes, becas doctorales y “Ponencia Sicómoro”.</li>
+              <p><strong>Latin American Conference on Complex Networks - LANET</strong></p>
+              <p>La Cátedra Sicómoro participa activamente en la organización y apoyo a la Latin American Conference on Complex Networks (LANET), contribuyendo a la divulgación científica a través de la producción de material audiovisual especializado. Esta colaboración incluye la creación de videos introductorios con ponentes expertos y la financiación de becas para la asistencia de estudiantes de doctorado, fomentando la formación de nuevas generaciones de investigadores. Como distintivo de esta alianza, se ha incorporado la "Ponencia Sicómoro" dentro del programa de conferencias invitadas, reforzando el vínculo entre la investigación académica y la Fundación Sicómoro.</p>
             </ul>
           </article>
 
           <article class="card project-card">
             <header class="project-header">
-              <h3>Eventos anuales</h3>
+              <h3>Eventos y jornadas anuales</h3>
               <div class="project-meta">Comunidad</div>
             </header>
             <ul>
-              <li><strong>Una visión del siglo XXI</strong>: conferencia con investigador/a invitado/a.</li>
-              <li><strong>Frontiers of Complexity 72h</strong>: sprint de escritura científica.</li>
+              <li><strong>Evento Anual en Madrid</strong></li>
+              <p>Una visión sobre los sistemas complejos en el siglo XXI: ponencia de un investigador de reconocido prestigio internacional, con el objetivo de exponer las últimas tendencias y aplicaciones de la ciencia de la complejidad en el mundo actual.</p>
+              <li><strong>Frontiers of Complexity 72h</strong></li>
+              <p>Encuentro exclusivo para investigadores senior en sistemas complejos. Redacción colaborativa de un artículo científico en menos de 72 horas sobre temas frontera.</p>
+              <li><strong>Workshops Especializados</strong></li>
+              <p><strong>Football Analytics</strong> es un evento especializado en la aplicación de metodologías de sistemas complejos al ámbito deportivo. Financiación de becas de registro para participantes destacados.</p>
             </ul>
           </article>
 
           <article class="card project-card">
             <header class="project-header">
-              <h3>Workshops</h3>
+              <h3>Divulgación y Transferencia de Conocimiento</h3>
               <div class="project-meta">Formación</div>
             </header>
             <ul>
-              <li><strong>Football Analytics</strong>: organización, soporte y becas de registro.</li>
+              <li><strong>Ciencia y Museos</strong></li>  
+              <p>Organización y apoyo logístico del evento “Ciencia y Museos”, el cual consistirá en una visita guiada por el Museo del Prado en el que se comentarán, desde la perspectiva científica, varios cuadros de reconocido prestigio.</p>  
+              <li>Ciencia y Cine</li>
+              <p>Organización y apoyo logístico del evento “Ciencia y Cine”, el cual consistirá en la proyección de una película de cine, seguida de una ponencia de un investigador de reconocido prestigio sobre el tema contenido en la película y un posterior debate con los asistentes.</p>
             </ul>
           </article>
 
@@ -175,8 +209,11 @@
               <div class="project-meta">Investigación</div>
             </header>
             <ul>
-              <li>Dirección de tesis doctorales (ayudas de matrícula).</li>
-              <li>Máster en Análisis de Datos Deportivos (ponentes internacionales y becas).</li>
+              <li><strong>Dirección de tesis doctorales</strong></li>
+              <p>Impulso y dirección de tesis en el campo de los Sistemas Complejos, ofreciendo ayudas económicas para cubrir la matrícula y así favorecer la formación de nuevos expertos en la materia.</p>
+              <li><strong>Apoyo programas de Posgrado</strong></li>
+              <p><strong>Máster en Análisis de Datos Deportivos</strong></p>
+              <p>Ponentes internacionales de reconocido prestigio en la asignatura de “Seminarios”.Becas de matrícula para estudiantes, con especial incentivo a la participación femenina, promoviendo la diversidad en el ámbito académico.</p>
             </ul>
           </article>
 
@@ -222,7 +259,10 @@
                 <div class="member-info">
                   <h3>Javier M. Buldú</h3>
                   <p class="member-role">Catedrático de Universidad (URJC) · Director de la Cátedra</p>
-                  <p class="member-bio">Coordinador del Laboratorio de Redes Biológicas del CTB. Ingeniero y Doctor en Física Aplicada por la UPC. Experto en dinámica no lineal y ciencia de redes aplicada a sistemas biológicos, tecnológicos y sociales. +100 publicaciones, organización de conferencias y colaboración con empresas. Estancias en CAB y University of Oxford. Especializado en ciencia de datos aplicada al fútbol.</p>
+                  <p class="member-bio">Coordinador del Laboratorio de Redes Biológicas del Centro de Tecnología Biomédica, Javier M. Buldú es Ingeniero y Doctor en Física Aplicada por la Universidad Politécnica de Cataluña. Es experto en dinámica no-lineal y sistemas complejos, pero especialmente en la aplicación de la Ciencia de las Redes a sistemas biológicos, tecnológicos y sociales. Ha publicado más de 100 artículos científicos en revistas internacionales con revisión por pares, organizado Conferencias y Escuelas internacionales y colaborado con varias empresas en el análisis inteligente de datos. Javier ha realizado estancias post-doctorales en el Centro de Astrobiología y ha sido investigador visitante de la University of Oxford. También ha realizado actividades de transferencia de la investigación, colaborando con varias empresas en la aplicación de la Ciencia de las Redes al sector privado. Durante los últimos años se ha especializado en ciencia de los datos aplicada al fútbol, desarrollando nuevas métricas a partir de metodologías de los sistemas complejos.</p>
+                  <p>
+                    <a href="https://scholar.google.com/citations?user=pFIlwGUAAAAJ&hl=es&oi=ao" target="_blank">Publicaciones</a>              
+                  </p>
                 </div>
               </div>
 
@@ -232,7 +272,10 @@
                 <div class="member-info">
                   <h3>Irene Sendiña Nadal</h3>
                   <p class="member-role">Catedrática de Universidad (URJC)</p>
-                  <p class="member-bio">Pendiente de bio.</p>
+                  <p class="member-bio">Coordinadora del grupo de Redes Biológicas en el Centro de Tecnología Biomédica, Irene Sendiña Nadal es Doctora en Física por la Universidade de Santiago de Compostela, con una tesis doctoral centrada en los sistemas de reacción-difusión y fenómenos de excitabilidad. Es experta en dinámica no lineal y sistemas complejos, con especial dedicación al estudio de la relación entre estructura y dinámica en redes biológicas, sociales y tecnológicas. Como cofundadora del Grupo de Sistemas Complejos de la Universidad Rey Juan Carlos, su investigación ha contribuido significativamente al entendimiento de fenómenos como la sincronización explosiva en redes de osciladores acoplados, con aplicaciones en neurociencia y gestión de infraestructuras críticas. En la actualidad, lidera proyectos interdisciplinares orientados a identificar marcadores tempranos de enfermedades neurodegenerativas mediante el análisis de redes cerebrales, combinando modelización matemática, simulación computacional y técnicas experimentales.</p>
+                  <p>
+                    <a href="https://scholar.google.es/citations?user=39_Z-ikAAAAJ&hl=es" target="_blank">Publicaciones</a>              
+                  </p>
                 </div>
               </div>
 
@@ -242,7 +285,10 @@
                 <div class="member-info">
                   <h3>Inmaculada Leyva Callejas</h3>
                   <p class="member-role">Catedrática de Universidad (URJC)</p>
-                  <p class="member-bio">Pendiente de bio.</p>
+                  <p class="member-bio">Miembro permanente del Grupo de Sistemas Complejos en el Centro de Tecnología Biomédica, Inmaculada Leyva es Doctora en Física, con una tesis doctoral centrada en el caos y la turbulencia óptica en láseres de alta potencia. Es experta en dinámica no lineal y sistemas complejos, con especial dedicación al estudio de la relación entre estructura y dinámica en redes biológicas adaptativas, competencia dinámica y transiciones irreversibles. Ha publicado más de 70 artículos científicos en revistas internacionales indexadas y ha dirigido 3 tesis doctorales. Inmaculada realizó una estancia postdoctoral en el Istituto Nazionale di Ottica en Florencia (Italia) y desde su incorporación a la Universidad Rey Juan Carlos en 2000, ha desarrollado una intensa labor investigadora en el análisis de sistemas complejos biológicos y tecnológicos.</p>
+                  <p>
+                    <a href="https://scholar.google.com/citations?user=xfCdwR8AAAAJ&hl=es" target="_blank">Publicaciones</a>              
+                  </p>
                 </div>
               </div>
 
@@ -252,7 +298,12 @@
                 <div class="member-info">
                   <h3>Johann Heinz Martínez Huartos</h3>
                   <p class="member-role">Profesor Ayudante Doctor (URJC)</p>
-                  <p class="member-bio">Intereses en ciencia de redes, teoría de la información y dinámica no lineal, con proyectos de ciencia de datos en neurociencia, ciencias sociales y biología. Consejo editorial de <em>Journal of Complex Networks</em>, editor invitado en <em>Chaos</em> y <em>Chaos Solitons & Fractals</em>; comité de LANET y ENREDANDO; organiza Satélites de Redes Cerebrales @NetSci.</p>
+                  <p class="member-bio">Sus principales intereses se centran en la física de sistemas complejos, en la que explora fenómenos de la ciencia de redes, la teoría de la información y la dinámica no lineal, junto con proyectos de ciencia de datos en el contexto de la neurociencia, las ciencias sociales y la biología, entre otros.
+Siempre le han impresionado los trabajos de investigación que muestran cómo los sistemas naturales y artificiales exhiben comportamientos típicamente atribuidos a los sistemas físicos; de ahí que apueste por la investigación transdisciplinar para resolver problemas, en un campo determinado, recurriendo a herramientas de otro campo a primera vista completamente distinto. Una forma innovadora de encontrar nuevas soluciones con una perspectiva diferente trabajando en equipos interdisciplinares que hagan hincapié en las matemáticas aplicadas, la física estadística y la informática, con aplicaciones a problemas médicos, biológicos o sociales relevantes.
+Es miembro del Consejo Editorial del Journal of Complex Networks (Oxford Academics), editor invitado de Chaos Solitons & Fractals (Elsevier), & Chaos Journal (AIP). Forma parte del comité directivo de la Conferencia Latinoamericana sobre Redes Complejas (LANET), & ENREDANDO, Escuela internacional de dinámica no lineal y redes, Organizador de los Satélites de Redes Cerebrales @NetSci.</p>
+                  <p>
+                    <a href="https://johemart.wixsite.com/neurocomplexity" target="_blank">Más Información</a>              
+                  </p>  
                 </div>
               </div>
             </div>
@@ -268,7 +319,12 @@
                 <div class="member-info">
                   <h3>Jose G. Espinoza</h3>
                   <p class="member-role">Asociado</p>
-                  <p class="member-bio">Pendiente de bio.</p>
+                  <p class="member-bio">Licenciado en Computación egresado de la Universidad del Zulia (Maracaibo - Venezuela) con experiencia en proyectos globales, destacando en el desarrollo, diseño y mantenimiento de sistemas orientados a microservicios (APIs RESTful) y en la implementación de arquitecturas de APIs utilizando herramientas como ApiGee y Swagger.
+Enfocado en tecnologías como Java (Spring Boot), PHP, JavaScript y Python, además del uso de bases de datos relacionales (MySQL y PostgreSQL) como no relacionales (MongoDB). Su experiencia incluye el manejo de Git (Herramienta de control de versiones), así como la gestión de contenedores de aplicaciones mediante Docker y Kubernetes en plataformas Cloud como AWS y GCP, facilitando el despliegue y la escalabilidad de aplicaciones. Actualmente se desempeña como Desarrollador de Software para una multinacional Europea.
+Su interés por el deporte lo ha llevado a certificarse en áreas como el Big Data aplicado al fútbol y la estadística deportiva, buscando siempre optimizar el rendimiento y la toma de decisiones a través de la tecnología.</p>
+                  <p>
+                    <a href="https://espinozajgch.github.io./" target="_blank">Más Información</a>              
+                  </p> 
                 </div>
               </div>
 
@@ -277,7 +333,7 @@
                 <div class="member-info">
                   <h3>Paula Rodríguez</h3>
                   <p class="member-role">Estudiante predoctoral</p>
-                  <p class="member-bio">Ingeniera de Telecomunicaciones (UPM) y máster en Física de la Materia Condensada (UAM). Doctoranda en la URJC. Estudia espacio, tiempo y evolución en sistemas complejos aplicando redes, dinámica no lineal, física estadística y aprendizaje automático.</p>
+                  <p class="member-bio">Paula Rodríguez es ingeniera de telecomunicaciones por la Universidad Politécnica de Madrid y cuenta con un máster en Física de la Materia Condensada y de los Sistemas Biológicos por la Universidad Autónoma de Madrid. Actualmente, es estudiante de doctorado en el grupo de Sistemas Complejos de la Universidad Rey Juan Carlos. Su investigación explora la relación entre el espacio, el tiempo y la evolución de sistemas complejos en entornos sociales, naturales y tecnológicos, utilizando herramientas de la ciencia de redes, dinámica no lineal, física estadística y aprendizaje automático.</p>
                 </div>
               </div>
 
@@ -286,7 +342,9 @@
                 <div class="member-info">
                   <h3>Xiuyuan Xiong</h3>
                   <p class="member-role">Estudiante predoctoral</p>
-                  <p class="member-bio">Grado en Matemáticas (ECUST) y Máster en Ciencias del Deporte (Beijing). Doctorando en UPM (INEF) con J. M. Buldú y M. A. Gómez Ruano. Analiza rendimiento en fútbol con teoría de redes y <em>machine learning</em>.</p>
+                  <p class="member-bio">Xiuyuan Xiong tiene el Grado en Matemáticas y Matemáticas Aplicadas de la Universidad Tecnológica del Este de China y un Master en Ciencias del Deporte de la Universidad de Deportes de Beijing. Ahora mismo está realizando el doctorado en la Facultad de Ciencias de la Actividad Física y del Deporte (INEF) de la Universidad Politécnica de Madrid (UPM) bajo la supervisión de Javier M. Buldú y Miguel Ángel Gómez Ruano. Su investigación utiliza teoría de redes y machine learning para analizar el rendimiento de los equipos de fútbol.
+
+</p>
                 </div>
               </div>
 
@@ -295,7 +353,9 @@
                 <div class="member-info">
                   <h3>Julieta Schwartz</h3>
                   <p class="member-role">Ayudante de investigación</p>
-                  <p class="member-bio">Graduada en Física (Univ. Zaragoza) con estancia en Bath University. Máster en Big Data, Data Science e IA (UCM). Analiza datos complejos en el grupo de Sistemas Complejos de la URJC.</p>
+                  <p class="member-bio">Graduada en Física por la Universidad de Zaragoza realizando un año de estancia en la Bath University (Inglaterra) donde surgió su pasión por el análisis de datos deportivo. Actualmente está cursando un máster en Big Data, Data Science e Inteligencia Artificial en la Universidad Complutense de Madrid. Es una apasionada del fútbol, la física y el deporte, con varias medias maratones. Actualmente es ayudante de investigación en el grupo de Sistemas Complejos de la Universidad Rey Juan Carlos, donde analiza datos complejos y proporciona soporte utilizando herramientas avanzadas de programación y análisis.
+
+</p>
                 </div>
               </div>
 
@@ -320,7 +380,10 @@
                 <div class="member-info">
                   <h3>Ignacio Echegoyen</h3>
                   <p class="member-role">Colaborador externo</p>
-                  <p class="member-bio">Psicólogo y Doctor en Ingeniería Biomédica (UPM). Especialista en métodos, estadística y análisis de series temporales cerebrales. Experiencia en neurociencia de redes; aplica metodologías de sistemas complejos al fútbol.</p>
+                  <p class="member-bio">Ignacio Echegoyen es Psicólogo y Doctor en Ingeniería Biomédica por la Universidad Politécnica de Madrid. Está especializado en métodos, estadística y análisis de series temporales cerebrales. Su labor profesional se ha desarrollado fundamentalmente en el campo de la neurociencia de redes, aplicando técnicas de análisis de sistemas complejos al estudio del cerebro. Colabora como asesor y analista estadístico con COTERA educación, y en los últimos años se ha dedicado también a la aplicación de metodologías de sistemas complejos al fútbol.</p>
+                  <p>
+                    <a href="https://nachoenblanco.github.io/" target="_blank">Más Información</a>              
+                  </p>
                 </div>
               </div>
 
@@ -329,7 +392,11 @@
                 <div class="member-info">
                   <h3>José Luis Herrera Diestra</h3>
                   <p class="member-role">Colaborador externo</p>
-                  <p class="member-bio">Doctor en Física (ULA). Postdocs en UT Austin (2012–2013, 2016–2017) y en ICTP–SAIFR (2017–2019). Investigador Asociado en UT Austin. Redes complejas en epidemiología y análisis del rendimiento en deportes.</p>
+                  <p class="member-bio">Doctor en Física fundamental egresado de la Universidad de Los Andes, Mérida - Venezuela. Realizó estancias postdoctorales en la University of Texas at Austin, Texas - Estados Unidos (2012 - 2013 y 2016 - 2017) y en el ICTP - SAIFR, Sao Paulo - Brasil (2017 - 2019). Actualmente trabaja en la University of Texas at Austin como Investigador Asociado. Su campo principal de investigación es la caracterización y estudio de las redes complejas en diversos contextos. En este sentido, colabora con diversos grupos a nivel nacional e internacional realizando investigación sobre el efecto de las redes de contacto en la propagación de enfermedades infecciosas en seres humanos y animales; así como la aplicación de las redes complejas para evaluar el desempeño individual y grupal en deportes, particularmente fútbol.
+</p>
+                  <p>
+                    <a href="https://scholar.google.com/citations?user=yysYgmAAAAAJ&hl=es&oi=ao" target="_blank">Publicaciones</a>              
+                  </p>
                 </div>
               </div>
             </div>
