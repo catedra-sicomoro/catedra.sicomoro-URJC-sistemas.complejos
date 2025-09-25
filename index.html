@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -72,6 +72,16 @@
     .member-role{opacity:.9; font-size:.92rem; margin:0 0 .5rem}
     .member-bio{font-size:.92rem; margin:0}
 
+    /* ===== Overrides: Miembros en tarjetas horizontales (1 por fila; 2 en desktop) ===== */
+    .members-group .grid.four{ grid-template-columns: 1fr; } /* móviles/tablet: 1 por fila */
+    @media (min-width: 1100px){
+      .members-group .grid.four{ grid-template-columns: 1fr 1fr; } /* desktop: 2 por fila */
+    }
+    .member-card{ display:flex; gap:1rem; align-items:flex-start; } /* asegurar horizontal */
+    .member-photo{ width:120px; height:120px; border-radius:50%; object-fit:cover; flex:0 0 120px; }
+    .member-info{ flex:1 1 auto; }
+
+
     .footer{border-top:1px solid #ffffff12; color:#9fb0be; text-align:center; padding:2rem 1rem}
   </style>
 </head>
@@ -83,7 +93,12 @@
         <img src="images/urjc.png" alt="Universidad Rey Juan Carlos" />
         <img src="images/logo_sicomoro.webp" alt="Fundación Sicómoro" />
       </div>
-      <h1 class="title">Cátedra <span>Sicómoro</span> – URJC<br>en <span class="alt">Sistemas Complejos</span></h1>
+      <h1 class="title">
+        <img src="images/drawing.png" alt="Logo Cátedra Sicómoro"
+             style="height:60px; vertical-align:middle; margin-right:12px;">
+        Cátedra <span>Sicómoro</span> – URJC<br/>en <span class="alt">Sistemas Complejos</span>
+      </h1>
+      
       <p class="subtitle">Una iniciativa para acercar las Ciencias de la Complejidad a la sociedad, la empresa y las organizaciones, impulsando la investigación, la formación y la transferencia de conocimiento.</p>
     </div>
   </header>
